@@ -1,0 +1,124 @@
+TRƯỜNG ĐẠI HỌC CÔNG THƯƠNG THÀNH PHỐ HỒ CHÍ MINH
+KHOA CÔNG NGHỆ THÔNG TIN
+BÁO CÁO THỰC TẬP TỐT NGHIỆP
+< TÊN ĐỀ TÀI/NỘI DUNG THỰC TẬP >
+< GIÁO VIÊN HƯỚNG DẪN >
+Sinh viên thực hiện:
+Mã sinh viên: .............  Lớp:
+TP. HỒ CHÍ MINH, THÁNG 06 NĂM 2024
+Kết cấu và hình thức trình bày một báo cáo thực tập tốt nghiệp
+CHƯƠNG 1: GIỚI THIỆU CHUNG ĐƠN VỊ THỰC TẬP
+1.1. Thông tin về đơn vị thực tập:
+- Sơ lược về sự hình thành và phát triển của đơn vị.
+- Tổ chức và các lĩnh vực hoạt động của đơn vị.
+- Tổ chức quản lý sử dụng các nguồn lực của đơn vị.
+- Cơ cấu tổ chức.
+- Tình hình hoạt động kinh doanh của doanh nghiệp.
+- Các nội dung khác (tuỳ theo lĩnh vực của đề tài)
+1.2. Thông tin về vị trí sinh viên tham gia thực tập:
+- Giới thiệu chung về vị trí công tác.
+- Đặc điểm, yêu cầu.
+- Cơ cấu tổ chức, nhiệm vụ liên quan.
+Nội dung bao gồm: Tóm tắt, hệ thống hoá một cách ngắn gọn các thông tin có liên quan.
+CHƯƠNG 2: PHÂN TÍCH THỰC TRẠNG CỦA VẤN ĐỀ CÓ LIÊN QUAN ĐẾN ĐỀ TÀI MÀ SINH VIÊN CHỌN VIẾT BÁO CÁO THỰC TẬP TẠI ĐƠN VỊ/DOANH NGHIỆP THỰC TẬP
+Nội dung bao gồm:
+Với từng nội dung tham gia thực tập đã báo cáo lần 1 thực hiện các phần 2.1 đến 2.3
+Nội dung 1:….
+Nội dung 2:…..
+Nội dung n.
+2.1. Phân tích đánh giá tình hình thực tế theo chủ đề thực tập tại đơn vị
+2.2. Ưu điểm, hạn chế của vấn đề phân tích ở mục 2.1
+2.3. Tiến độ thực hiện công việc (các mốc thời gian thực hiện)
+Hình chụp minh họa dự án quá trình làm việc thực tế tại đơn vị (Có thể che mờ các số liệu phù hợp bảo mật cho doanh nghiệp).
+2.4. Sơ lược các kỹ thuật, công nghệ liên quan đến các nội dung: 1, 2, 3, …, n;
+2.5. Khác (Dùng cho phần sinh viên tự đề nghị khi cần bổ sung mục liên quan đến vấn đề thực tập)
+CHƯƠNG 3: NHẬN XÉT, ĐÁNH GIÁ THỰC TRẠNG
+Nội dung bao gồm
+3.1. Các nhận xét, đánh giá thực trạng của quá trình làm việc.
+3.2. Các kiến nghị (nếu có)
+* KẾT LUẬN
+* TÀI LIỆU THAM KHẢO
+* PHỤ LỤC (các nội dung liên quan)
+4.2. Bố cục báo cáo thực tập tốt nghiệp
+- Trang bìa (theo mẫu)
+- Trang phụ bìa (theo mẫu)
+- Trang “Lời cảm ơn”
+- Trang “Nhận xét của đơn vị thực tập” có dấu tròn xác nhận (đóng dấu treo vẫn được). Nhận xét chung toàn bộ quyển báo cáo. Có thể là người giám sát/hướng dẫn xác nhận ký tên và đóng dấu treo vẫn được. Khác với “Phieu nhan xet (SV thuc tap tai Cong ty)”.
+- Trang “Mục lục”
+- Trang “Danh mục các ký hiệu, chữ viết tắt ” (nếu có)
+- Trang “Danh sách các bảng sử dụng ” (nếu có)
+- Trang “Danh sách các biểu đồ, đồ thị, sơ đồ, hình ảnh ” (nếu có)
+- Mở đầu
+- Chương 1.
+...
+- Chương 2.
+....
+- Chương 3.
+- Kết luận
+- TÀI LIỆU THAM KHẢO
+- PHỤ LỤC (nếu có)
+4.3. Hình thức trình bày báo cáo thực tập:
+a. Quy định định dạng trang
+- Khổ trang: A4
+- Canh lề trái: 3 cm; Canh lề phải, đầu trang và cuối trang 2 cm.
+- Font chữ: Time New Roman, cỡ chữ 13.
+- Cách dòng (Line Space): 1.5
+- Các đoạn văn cách nhau 1 dấu Enter
+b. Đánh số trang
+Đánh theo số (1,2,3…), canh giữa ở cuối trang.
+Lưu ý: Không ghi tên đề tài, tên sinh viên, tên GVHD,… ở phần header và footer.
+c. Đánh số các đề mục
+Đánh theo số thứ tự của chương và số thứ tự của đề mục cấp trên:
+CHƯƠNG 1……………
+1.1……..
+1.1.1……….
+1.1.2 ………
+……
+CHƯƠNG 2………..
+2.1…………
+2.1.1……..
+2.1.2 …..
+……
+d. Đánh số bảng, đồ thị, hình, sơ đồ
+Mỗi loại công cụ minh họa (bảng, đồ thị, hình, sơ đồ…) được đặt tên và ...
+Tất cả trích dẫn đều có CHÚ THÍCH chính xác đến số trang
+Trình bày tài liệu tham khảo
+Sách: Tên tác giả (Năm xuất bản). Tên sách. Tên nhà xuất bản. Nơi xuất bản
+Bài viết in trong sách hoặc bài báo in trong các tạp chí: Tên tác giả (năm xuất bản), “Tên bài báo”. Tên tạp chí. Số tạp chí.
+Tham khảo điện tử: Tên tác giả (Năm xuất bản). “Tên bài viết”. Tên website. Ngày tháng năm.
+Các văn bản hành chính nhà nước: Ví dụ: Quốc hội…, Luật Doanh nghiệp số…
+Sắp xếp tài liệu tham khảo
+Danh mục tài liệu tham khảo được liệt kê trong trang “Tài liệu tham khảo” và sắp xếp theo các thông lệ sau:
+Tài liệu tham khảo được xếp riêng theo từng ngôn từ (Việt, Anh, Pháp, Đức, Nga, Trung, Nhật…). Các tài liệu bằng tiếng nước ngoài phải giữ nguyên văn, không phiên âm, không dịch.
+Tài liệu tham khảo phân theo các phần như sau:
+Các văn bản hành chính nhà nước
+Sách tiếng Việt
+Sách tiếng nước ngoài
+Báo, tạp chí
+Các trang web
+Các tài liệu gốc của cơ quan thực tập
+Tài liệu tham khảo sắp xếp theo thứ tự ABC họ tên tác giả theo thông lệ:
+Tác giả là người nước ngoài: xếp thứ tự ABC theo họ.
+Tác giả là người Việt Nam: xếp thứ tự ABC theo tên nhưng vẫn giữ nguyên thứ tự thông thường của tên người Việt Nam. Không đảo tên lên trước họ
+Tài liệu không có tên tác giả thì xếp theo thứ tự ABC từ đầu của tên cơ quan ban hành báo cáo hay ấn phẩm.
+Nếu tài liệu chưa công bố ghi (Tài liệu chưa công bố); nếu tài liệu nội bộ, ghi (Lưu hành nội bộ)
+Sắp xếp thứ tự theo chữ cái đầu tiên của tên tác giả, nếu chữ cái thứ nhất giống nhau thì phân biệt theo chữ cái tiếp theo, nếu trùng chữ cái thì phân biệt theo vần, trùng vần thì phân biệt theo dấu thanh: không – huyền – sắc – hỏi – ngã – nặng.
+Tài liệu nước ngoài ít thì xếp chung, nhiều thì xếp thành mục riêng: Tài liệu trong nước, tài liệu nước ngoài
+Có thể xếp chung sách và báo hoặc xếp riêng: I. Sách; II. Báo; III. Tài liệu khác.
+Nhiều người thì ghi: Nhiều tác giả, Nhiều soạn giả, Nhiều dịch giả, xếp theo chữ cái G.
+Nhiều tác giả nhưng có chủ nhiệm, chủ biên thì ghi tên của chủ nhiệm, chủ biên
+Nếu xếp chung tài liệu Việt Nam và nước ngoài thì điều chỉnh theo trật tự chung
+Tên cơ quan, địa phương: sử dụng chữ cuối cùng làm tên tác giả, ví dụ: Tỉnh Lâm Đồng, Viện Dân tộc học, … để xếp theo chữ cái Đ, H.
+5. Đánh giá kết quả báo cáo thực tập tốt nghiệp
+Báo cáo thực tập tốt nghiệp được đánh giá dựa trên các tiêu chí sau:
+Bố cục và hình thức trình bày
+Nội dung của báo cáo
+Thái độ làm việc và mức độ đáp ứng yêu cầu chuyên môn.
+Số lượng báo cáo thực tập tốt nghiệp phải nộp: 01 quyển (có nhận xét của đơn vị thực tập và được đóng dấu tròn), in giấy 1 mặt bỏ vào phong bì niêm phong.
+Sinh viên phải ký tên vào bảng điểm khi nộp báo cáo thực tập cho Khoa.
+Báo cáo thực tập tốt nghiệp không đạt khi:
+Cố tình sao chép báo cáo thực tập tốt nghiệp của sinh viên khác.
+Sao chép trực tiếp từ sách giáo khoa hoặc các nguồn khác mà không đánh dấu trích dẫn. Sao chép nguyên văn của người khác mặc dầu có trích dẫn nguồn tài liệu tham khảo.
+Không trích dẫn các nguồn đã sử dụng trong báo cáo thực tập.
+Sinh viên không thực tập tại cơ sở thực tế.
+Sinh viên không thực hiện đúng quy định của giảng viên hướng dẫn, Khoa, Trường và cơ sở thực tập trong thời gian thực tập.

@@ -42,15 +42,24 @@ def rag_endpoint(q: Question):
     collected_tokens = []
     
     def token_gen():
-        for token in chain.stream({"question": q.question, "context": ctx}):
-            collected_tokens.append(token)
-            yield token
-        
-        # Sau khi stream xong, lưu vào history
-        if collected_tokens:
-            answer = "".join(collected_tokens)
-            print(f"[SERVER] Saving to history - Q: {q.question[:50]}... A: {answer[:50]}...")
-            add_to_chat_history(session_id, q.question, answer)
+        try:
+            for token in chain.stream({"question": q.question, "context": ctx}):
+                collected_tokens.append(token)
+                yield token
+            
+            # Sau khi stream xong, lưu vào history
+            if collected_tokens:
+                answer = "".join(collected_tokens)
+                print(f"[SERVER] Saving to history - Q: {q.question[:50]}... A: {answer[:50]}...")
+                try:
+                    add_to_chat_history(session_id, q.question, answer)
+                except Exception as e:
+                    print(f"[SERVER] Error saving history: {e}")
+        except Exception as e:
+            print(f"[SERVER] Error during streaming: {e}")
+            import traceback
+            traceback.print_exc()
+            yield f"\n[ERROR] {str(e)}"
 
     return StreamingResponse(
         token_gen(), 

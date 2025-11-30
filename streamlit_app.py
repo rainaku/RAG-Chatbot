@@ -4,13 +4,13 @@ import uuid
 
 # Cấu hình trang
 st.set_page_config(
-    page_title="RAG Chatbot - HUIT",
+    page_title="Chatbot tư vấn quy chế học vụ - HUIT",
     page_icon="🤖",
     layout="centered"
 )
 
 # Header
-st.title("RAG Chatbot - HUIT")
+st.title("Chatbot tư vấn quy chế học vụ HUIT")
 st.caption("Trợ lý AI hỗ trợ tra cứu thông tin Khoa Công nghệ thông tin")
 
 # Initialize session state
@@ -75,7 +75,7 @@ if prompt := st.chat_input("Nhập câu hỏi của bạn..."):
                     "session_id": st.session_state.session_id
                 },
                 stream=True,
-                timeout=60
+                timeout=120
             )
             
             if response.status_code == 200:

@@ -1,0 +1,59 @@
+TEMPLATE BÀI BÁO TẠP CHÍ KHOA HỌC
+TRƯỜNG ĐẠI HỌC CÔNG THƯƠNG TP. HỒ CHÍ MINH – NĂM 2024
+
+TÊN BÀI BÁO BẰNG TIẾNG VIỆT (in hoa, cỡ 13, đậm, canh giữa)
+Tác giả 1*, Tác giả 2, Tác giả 3
+1Trường Đại học Công Thương Thành phố Hồ Chí Minh
+2Đơn vị khác
+*Email tác giả liên hệ: abc@huit.edu.vn
+
+Ngày nhận bài: ………………; Ngày chấp nhận đăng: ………………
+
+TÓM TẮT
+Nội dung tóm tắt nghiên cứu (150–250 từ).
+
+Từ khóa: từ khóa 1, từ khóa 2, từ khóa 3, từ khóa 4, từ khóa 5.
+
+MỞ ĐẦU
+Nội dung phần mở đầu.
+
+NGUYÊN LIỆU VÀ PHƯƠNG PHÁP NGHIÊN CỨU
+2.1. Nguyên liệu
+Mô tả nguyên liệu.
+
+2.2. Phương pháp
+Mô tả phương pháp nghiên cứu.
+
+KẾT QUẢ VÀ THẢO LUẬN
+3.1. Tiểu mục 1
+Nội dung, hình ảnh, bảng biểu.
+
+Hình 1. Chú thích hình
+Bảng 1. Chú thích bảng
+
+KẾT LUẬN
+Tóm tắt ngắn gọn kết quả đạt được, không viết chung chung. Có thể đưa ra kiến nghị cụ thể.
+
+TÀI LIỆU THAM KHẢO
+(Thứ tự theo trích dẫn trong bài)
+1. Zdanowicz M., Schmidt B., Spychaj T. Starch graft copolymers as superabsorbents obtained via reactive extrusion processing. Polish Journal of Chemical Technology 12(2) (2010) 14–17.
+2. Vinatoru M., Mason T.J., Calinescu I. Ultrasonically assisted extraction (UAE) and microwave-assisted extraction (MAE) of functional compounds from plant materials. TrAC Trends in Analytical Chemistry 97 (2017) 159–178.
+3. Vũ Văn Hùng. Phân loại vi khuẩn Lam ở Việt Nam. Nxb Nông nghiệp, Hà Nội, 1996, tr. 220.
+
+ABSTRACT
+TÊN BÀI BÁO BẰNG TIẾNG ANH (Title Case, cỡ 11)
+Author 1*, Author 2, Author 3
+1Ho Chi Minh City University of Industry and Trade (HUIT), Vietnam
+*Corresponding author: abc@huit.edu.vn
+
+This study…
+
+Keywords: keyword 1, keyword 2, keyword 3.
+
+LƯU Ý KHI NỘP BÀI
+- Tôi xin cam kết bài báo này chưa từng được đăng hoặc gửi đăng ở bất kỳ tạp chí nào khác.
+- Tác giả chịu trách nhiệm hoàn toàn về nội dung khoa học và bản quyền.
+- Định dạng trang: Top/Bottom 1.7 cm, Left 2.5 cm, Right 2.0 cm, khổ giấy 19×27 cm.
+- Hình: Hình 1, Hình 2 (không dùng Hình 3.1)
+- Bảng: Bảng 1, Bảng 2 (không dùng Bảng 3.1)
+- Không dùng gạch đầu dòng liệt kê dài dòng, hạn chế dùng đại từ “chúng tôi”.
