@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RAG Stream · Demo</title>
+<style>
+  :root{
+    --bg:#0b1220;
+    --card:#0f172aee;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --accent:#6366f1;
+    --accent-2:#22d3ee;
+    --ring:#7c3aed44;
+    --ok:#10b981;
+    --err:#ef4444;
+    --mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 10% -10%, #1d2a4f66, transparent 60%),
+      radial-gradient(1200px 800px at 110% 10%, #0b516e55, transparent 60%),
+      radial-gradient(1200px 800px at -10% 110%, #3b1d6b44, transparent 60%),
+      var(--bg);
+  }
+  .wrap{
+    max-width: 920px;
+    margin: 48px auto;
+    padding: 0 20px;
+  }
+  .card{
+    background: linear-gradient(180deg, #0e152aee, #0b1220ee);
+    border: 1px solid #33415566;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px #00000055, inset 0 1px 0 #ffffff0f;
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+  }
+  .header{
+    padding: 20px 22px;
+    display:flex;align-items:center;gap:14px;
+    border-bottom:1px solid #33415555;
+  }
+  .logo{
+    inline-size:40px; block-size:40px; border-radius:10px;
+    background: conic-gradient(from 210deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 24px #6366f144;
+  }
+  h1{
+    margin:0;font-size:20px;font-weight:700;letter-spacing:.2px
+  }
+  .muted{color:var(--muted);font-size:13px}
+  .content{padding: 22px}
+  .row{display:grid;gap:14px}
+  .row.cols{grid-template-columns:1fr 120px}
+  textarea{
+    width:100%; min-height:120px; resize:vertical;
+    padding:14px 14px 16px;
+    color:var(--text); background:#0b1220cc;
+    border:1px solid #33415588; border-radius:12px;
+    outline:none; font-size:15px; line-height:1.5;
+    box-shadow: inset 0 1px 0 #ffffff08;
+  }
+  textarea:focus{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--ring), inset 0 1px 0 #ffffff10;
+  }
+  .actions{display:flex;gap:10px;align-items:center;justify-content:flex-end}
+  button{
+    appearance:none; border:none; cursor:pointer;
+    padding:12px 16px; border-radius:12px; font-weight:600; letter-spacing:.2px;
+    color:white; background: linear-gradient(135deg, var(--accent), #4f46e5);
+    box-shadow: 0 8px 24px #4f46e566, inset 0 1px 0 #ffffff22;
+    transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  }
+  button:hover{ filter:brightness(1.05) saturate(1.1) }
+  button:active{ transform: translateY(1px) }
+  button[disabled]{opacity:.5; cursor:not-allowed; filter:grayscale(30%)}
+  .pill{
+    font-size:12px; padding:8px 10px; border-radius:999px;
+    border:1px solid #33415588; color:var(--muted)
+  }
+  .output{
+    margin-top:16px;
+    background:#0b1220cc;
+    border:1px solid #33415588;
+    border-radius:12px;
+    padding:16px;
+    min-height:150px;
+    font-family:var(--mono); font-size:14px; line-height:1.55;
+    white-space:pre-wrap;
+    box-shadow: inset 0 1px 0 #ffffff08;
+  }
+  .status{display:flex;align-items:center;gap:8px;margin-top:10px}
+  .dot{
+    inline-size:8px; block-size:8px; border-radius:50%;
+    background:var(--muted); box-shadow:0 0 0 6px #ffffff06;
+  }
+  .dot.ok{ background: var(--ok) }
+  .dot.err{ background: var(--err) }
+  .foot{
+    padding:14px 22px; border-top:1px solid #33415555;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .kbd{
+    font-family:var(--mono); font-size:12px;
+    border:1px solid #33415588; border-bottom-width:2px;
+    padding:2px 8px;border-radius:8px;color:#cbd5e1;background:#0b1220cc;
+  }
+  .tips{display:flex;gap:8px;flex-wrap:wrap}
+  .tip{font-size:12px;color:#cbd5e1;border:1px dashed #33415588;padding:6px 10px;border-radius:999px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <div class="logo"></div>
+        <div>
+          <h1>RAG Stream @ FastAPI</h1>
+          <div class="muted">Vector + keyword search + metadata search · LangChain + Ollama · Supabase</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <label class="muted">Câu hỏi</label>
+          <div class="row cols">
+            <textarea id="q" placeholder="VD: Giới thiệu về trường HUIT hoặc Điều kiện xét tuyển ngành kế toán"></textarea>
+            <div class="actions">
+              <button id="btn">Hỏi</button>
+            </div>
+          </div>
+          <div class="tips">
+            <span class="tip">Nhấn gửi</span>
+            <span class="tip">/ask (POST) trả về stream text/plain</span>
+            <span class="tip">Context: Supabase → VectorStore</span>
+          </div>
+
+          <label class="muted" style="margin-top:8px;">Kết quả</label>
+          <div id="out" class="output"></div>
+          <div class="status">
+            <div id="dot" class="dot"></div>
+            <span id="msg" class="muted">Nhập câu hỏi rồi bấm Hỏi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span class="muted">RAG demo</span>
+        <span class="kbd">/ask → stream</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+const q   = document.getElementById('q');
+const btn = document.getElementById('btn');
+const out = document.getElementById('out');
+const dot = document.getElementById('dot');
+const msg = document.getElementById('msg');
+
+function setStatus(state, text){
+  dot.className = 'dot';
+  if(state==='ok') dot.classList.add('ok');
+  if(state==='err') dot.classList.add('err');
+  msg.textContent = text || '';
+}
+
+async function callAsk() {
+  const question = (q.value || '').trim();
+  if (!question) { setStatus('err','Bạn chưa nhập câu hỏi'); return; }
+
+  out.textContent = '';
+  btn.disabled = true;
+  setStatus('ok','Đang lấy câu trả lời…');
+
+  try {
+    const resp = await fetch('/ask', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ question })
+    });
+    if (!resp.ok || !resp.body) {
+      setStatus('err', 'Lỗi gọi API /ask');
+      btn.disabled = false;
+      return;
+    }
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+      const {value, done} = await reader.read();
+      if (done) break;
+      out.textContent += decoder.decode(value, {stream: true});
+      out.scrollTop = out.scrollHeight;
+    }
+    setStatus('ok','Hoàn tất.');
+  } catch (e) {
+    setStatus('err', 'Không kết nối được server');
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+btn.onclick = callAsk;
+
+q.addEventListener('keydown', (e)=>{
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    e.preventDefault(); callAsk();
+  }
+});
+</script>
+</body>
+</html>
