@@ -1,5 +1,4 @@
 # testRAG.py
-from typing import Any, List, Tuple, Dict, Optional
 from supabase import create_client
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.vectorstores import SupabaseVectorStore
@@ -9,7 +8,7 @@ from langchain_core.documents import Document
 from langchain_core.runnables import RunnableLambda
 from langchain_core.prompts import MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain_classic.memory import ConversationSummaryBufferMemory
+from langchain.memory import ConversationSummaryBufferMemory
 import os, re, unicodedata, difflib
 from dotenv import load_dotenv
 
@@ -19,50 +18,7 @@ base_url = os.getenv("BASE_URL")
 
 
 emb = OllamaEmbeddings(model="embeddinggemma:300m", num_gpu=0, base_url=base_url)
-
-class CustomSupabaseVectorStore(SupabaseVectorStore):
-    def similarity_search_by_vector_with_relevance_scores(
-        self,
-        query: List[float],
-        k: int,
-        filter: Optional[Dict[str, Any]] = None,
-        postgrest_filter: Optional[str] = None,
-        score_threshold: Optional[float] = None,
-    ) -> List[Tuple[Document, float]]:
-        match_documents_params = self.match_args(query, filter)
-        query_builder = self._client.rpc(self.query_name, match_documents_params)
-
-        if postgrest_filter:
-            # Placeholder for postgrest_filter if needed in future
-            pass
-
-        # FIX: Use .limit() instead of .params.set("limit", k)
-        query_builder = query_builder.limit(k)
-
-        res = query_builder.execute()
-
-        match_result = [
-            (
-                Document(
-                    metadata=search.get("metadata", {}),
-                    page_content=search.get("content", ""),
-                ),
-                search.get("similarity", 0.0),
-            )
-            for search in res.data
-            if search.get("content")
-        ]
-
-        if score_threshold is not None:
-            match_result = [
-                (doc, similarity)
-                for doc, similarity in match_result
-                if similarity >= score_threshold
-            ]
-            
-        return match_result
-
-vs = CustomSupabaseVectorStore(
+vs = SupabaseVectorStore(
     client=sb,
     table_name="documents",
     query_name="match_documents",
@@ -70,9 +26,9 @@ vs = CustomSupabaseVectorStore(
 )
 retriever = vs.as_retriever(search_kwargs={"k": 4})
 
-llm = ChatOllama(model="qwen2.5:3b", temperature=0.2, num_gpu=1,base_url=base_url,reasoning=False)
+llm = ChatOllama(model="qwen3:4b-instruct", temperature=0.2, num_gpu=1,base_url=base_url,reasoning=False)
 # LLM riêng để summarize (có thể dùng cùng model)
-summarize_llm = ChatOllama(model="qwen2.5:3b", temperature=0.1, num_gpu=1,base_url=base_url,reasoning=False)
+summarize_llm = ChatOllama(model="qwen3:4b-instruct", temperature=0.1, num_gpu=1,base_url=base_url,reasoning=False)
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", "Bạn là trợ lý RAG hỗ trợ sinh viên và giảng viên tra cứu, hỏi đáp về các văn bản quy chế học vụ của Khoa Công nghệ thông tin.\n\n"
@@ -193,10 +149,8 @@ def keyword_search(question: str, subject_token: str | None, max_rows: int = 6):
 # ========= Metadata focus =========
 def load_metadata_index(max_rows: int = 5000):
     """Tải danh sách source + tokens để tìm kiếm động theo metadata"""
-    print("[INIT] Loading metadata index...")
     try:
         res = sb.table("documents").select("metadata").limit(max_rows).execute()
-        print(f"[INIT] Metadata loaded. Rows: {len(res.data or [])}")
     except Exception as e:
         print(f"[WARNING] Không thể load metadata index: {e}")
         return []
