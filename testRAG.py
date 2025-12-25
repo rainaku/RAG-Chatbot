@@ -17,7 +17,7 @@ sb = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 base_url = os.getenv("BASE_URL")
 
 
-emb = OllamaEmbeddings(model="embeddinggemma:300m", num_gpu=0, base_url=base_url)
+emb = OllamaEmbeddings(model="embeddinggemma:300m", num_gpu=1, base_url=base_url)
 vs = SupabaseVectorStore(
     client=sb,
     table_name="documents",
@@ -27,13 +27,13 @@ vs = SupabaseVectorStore(
 #Lấy 2 file có chunk gần nhất
 retriever = vs.as_retriever(search_kwargs={"k": 2})
 
-llm = ChatOllama(model="qwen3:4b-instruct", temperature=0.3, num_gpu=1, base_url=base_url, reasoning=False, num_predict=256)  # Giới hạn output ngắn
+llm = ChatOllama(model="qwen3:4b-instruct", temperature=0.3, num_gpu=1, base_url=base_url, reasoning=False, num_predict=1024) 
 # LLM riêng để summarize
 summarize_llm = ChatOllama(model="qwen3:4b-instruct", temperature=0.1, num_gpu=1,base_url=base_url,reasoning=False)
 #Pre-prompt
 prompt = ChatPromptTemplate.from_messages([
     ("system", """Bạn là trợ lý tra cứu thông tin chính thức của trường Đại học Công Thương TP.HCM (HUIT). 
-TRẢ LỜI NGẮN GỌN - chỉ nội dung chính, không giải thích dài dòng, không lặp lại câu hỏi.
+TRẢ LỜI đúng trọng tâm - chỉ nội dung chính, không giải thích dài dòng, không lặp lại câu hỏi.
 
 Nếu không tìm thấy thông tin trong context được cung cấp, hãy trả lời theo mẫu sau:
 "Thông tin về [chủ đề câu hỏi] không có trong cơ sở dữ liệu chính thức của trường HUIT.
@@ -48,7 +48,7 @@ parser = StrOutputParser()
 # Prompt không có lịch sử (dùng cho trường hợp không có session)
 prompt_no_history = ChatPromptTemplate.from_messages([
     ("system", """Bạn là trợ lý tra cứu thông tin chính thức của trường Đại học Công Thương TP.HCM (HUIT).
-TRẢ LỜI NGẮN GỌN - chỉ nội dung cần thiết, không lòng vòng.
+TRẢ LỜI đúng trọng tâm  -  chỉ nội dung chính, không giải thích dài dòng, không lặp lại câu hỏi.
 
 Nếu không tìm thấy thông tin trong context được cung cấp, hãy trả lời theo mẫu sau:
 "Thông tin về [chủ đề câu hỏi] không có trong cơ sở dữ liệu chính thức của trường HUIT.

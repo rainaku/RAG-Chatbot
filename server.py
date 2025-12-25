@@ -1,6 +1,6 @@
 # uvicorn server:app --reload --host 0.0.0.0 --port 8000
 # py run_app.py
-# uvicorn server:app --reload --host 0.0.0.0 --port 8000
+
 
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
